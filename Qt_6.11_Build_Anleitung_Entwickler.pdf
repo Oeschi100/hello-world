@@ -1,0 +1,201 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [5 0 R 7 0 R] /Count 2 >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+4 0 obj
+<< /Length 2970 >>
+stream
+BT
+/F1 10 Tf
+50 800 Td
+(Qt 6.11.0 Build-Anleitung fuer Entwickler \(Windows, MSVC\)) Tj
+0 -14 Td
+(Stand: 22.04.2026) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(Ziel) Tj
+0 -14 Td
+(Diese Anleitung reproduziert den erfolgreichen Build fuer Qt 6.11.0 mit getrennten) Tj
+0 -14 Td
+(  Debug/Release-Builds,) Tj
+0 -14 Td
+(deaktiviertem QtWebEngine/QtPdf und stabilen Umgebungsparametern.) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(1\) Voraussetzungen) Tj
+0 -14 Td
+(Installiert: Visual Studio 2026 \(Desktop C++\), CMake, Ninja, Perl, Python3.) Tj
+0 -14 Td
+(Quellcode liegt lokal vor, z.B.: D:/Qt/Src/qt-everywhere-src-6.11.0) Tj
+0 -14 Td
+(Empfehlung: Build-Ordner ausserhalb des Source-Baums nutzen.) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(2\) Wichtige Erkenntnisse aus der Fehleranalyse) Tj
+0 -14 Td
+(a\) -skip qtwebengine allein kann in 6.11.0 unzuverlaessig sein.) Tj
+0 -14 Td
+(   Zusaetzlich explizit abschalten: -DFEATURE_qtwebengine_build=OFF und) Tj
+0 -14 Td
+(  -DFEATURE_qtpdf_build=OFF) Tj
+0 -14 Td
+(b\) Debug und Release getrennt in eigenen Build-Ordnern bauen.) Tj
+0 -14 Td
+(c\) Bei QPA-Plugin-Fehlern QT_QPA_PLATFORM=windows setzen.) Tj
+0 -14 Td
+(d\) ActiveQt-Beispiel-Registrierung kann 0x8002801c ausloesen -> Beispiele nicht mitbauen.) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(3\) Einmalige Konsole vorbereiten) Tj
+0 -14 Td
+(call "C:/Program Files/Microsoft Visual) Tj
+0 -14 Td
+(  Studio/2026/Professional/VC/Auxiliary/Build/vcvars64.bat") Tj
+0 -14 Td
+(set QT_PLUGIN_PATH=) Tj
+0 -14 Td
+(set QT_QPA_PLATFORM_PLUGIN_PATH=) Tj
+0 -14 Td
+(set QML2_IMPORT_PATH=) Tj
+0 -14 Td
+(set QT_QPA_PLATFORM=windows) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(4\) Release Build \(empfohlen\)) Tj
+0 -14 Td
+(Ordner:) Tj
+0 -14 Td
+(  BUILD_DIR=D:/Qt/VS2026/6.11.0-build-release) Tj
+0 -14 Td
+(  PREFIX_DIR=D:/Qt/VS2026/6.11.0-64-release) Tj
+0 -14 Td
+(Schritte:) Tj
+0 -14 Td
+(  1. Build-Ordner neu erstellen) Tj
+0 -14 Td
+(  2. configure.bat ausfuehren \(siehe Abschnitt 6\)) Tj
+0 -14 Td
+(  3. cmake --build . --parallel 8) Tj
+0 -14 Td
+(  4. cmake --install . --config Release) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(5\) Debug Build \(empfohlen\)) Tj
+0 -14 Td
+(Ordner:) Tj
+0 -14 Td
+(  BUILD_DIR=D:/Qt/VS2026/6.11.0-build-debug) Tj
+0 -14 Td
+(  PREFIX_DIR=D:/Qt/VS2026/6.11.0-64-debug) Tj
+0 -14 Td
+(Schritte analog zu Release, nur mit -debug und Install-Konfig Debug.) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(6\) Referenz-Configure-Zeile \(Release\)) Tj
+0 -14 Td
+(configure.bat -prefix d:/Qt/VS2026/6.11.0-64-release -opensource -confirm-license) Tj
+0 -14 Td
+(-release -force-debug-info -platform win32-msvc -nomake examples -nomake tests) Tj
+0 -14 Td
+(-skip qt3d -skip qtconnectivity -skip qtdeclarative -skip qtdoc -skip qtgraphs) Tj
+0 -14 Td
+(-skip qtlocation -skip qtlottie -skip qtmqtt -skip qtopcua -skip qtquick3d) Tj
+0 -14 Td
+(-skip qtquick3dphysics -skip qtquickeffectmaker -skip qtquicktimeline -skip qtscxml) Tj
+0 -14 Td
+(-skip qtsensors -skip qtvirtualkeyboard -skip qtwayland -skip qtwebsockets) Tj
+0 -14 Td
+(-skip qtwebchannel -skip qtwebengine -skip qtwebview) Tj
+ET
+endstream
+endobj
+5 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R >> >> /Contents 4 0 R >>
+endobj
+6 0 obj
+<< /Length 1328 >>
+stream
+BT
+/F1 10 Tf
+50 800 Td
+(-- -DFEATURE_qtwebengine_build=OFF -DFEATURE_qtpdf_build=OFF) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(7\) Haeufige Fehler und Loesungen) Tj
+0 -14 Td
+(Fehler: QtGnGen.cmake:95 / GN FAILED) Tj
+0 -14 Td
+(  Loesung: WebEngine/Pdf hart deaktivieren + frischer Build-Ordner.) Tj
+0 -14 Td
+(Fehler: LNK1105 Qt6BundledPcre2.lib kann nicht geschlossen werden) Tj
+0 -14 Td
+(  Loesung: Locking-Prozess beenden \(Defender/Indexer/Build-Tool\), dann neu bauen.) Tj
+0 -14 Td
+(Fehler: Could not find Qt platform plugin "minimal") Tj
+0 -14 Td
+(  Loesung: set QT_QPA_PLATFORM=windows und QT_* Plugin-Pfade bereinigen.) Tj
+0 -14 Td
+(Fehler: 0x8002801c bei comapp.exe -regserver) Tj
+0 -14 Td
+(  Loesung: -nomake examples verwenden oder als Admin bauen.) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(8\) Optional: Beispiel-Quellen mitinstallieren) Tj
+0 -14 Td
+(Wenn neben .exe auch .cpp/.h in den installierten Examples benoetigt werden:) Tj
+0 -14 Td
+(  -install-examples-sources) Tj
+0 -14 Td
+(Optional zusaetzlich:) Tj
+0 -14 Td
+(  -examplesdir <zielpfad>) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(9\) Validierung) Tj
+0 -14 Td
+(Nach configure in der Summary pruefen:) Tj
+0 -14 Td
+(  Build QtWebEngine Modules: no) Tj
+0 -14 Td
+(  Build QtPdf Modules: no) Tj
+0 -14 Td
+(Nach dem Install existieren die Zielverzeichnisse fuer Debug/Release getrennt.) Tj
+0 -14 Td
+() Tj
+ET
+endstream
+endobj
+7 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R >> >> /Contents 6 0 R >>
+endobj
+xref
+0 8
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000121 00000 n 
+0000000191 00000 n 
+0000003213 00000 n 
+0000003339 00000 n 
+0000004719 00000 n 
+trailer
+<< /Size 8 /Root 1 0 R >>
+startxref
+4845
+%%EOF
