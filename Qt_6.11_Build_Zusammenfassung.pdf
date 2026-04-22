@@ -1,0 +1,96 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 5 0 R >> >> /Contents 4 0 R >>
+endobj
+4 0 obj
+<< /Length 1662 >>
+stream
+BT
+/F1 11 Tf
+50 800 Td
+(Qt 6.11.0 Build ? Kurz-Zusammenfassung) Tj
+0 -15 Td
+(Stand: 22.04.2026) Tj
+0 -15 Td
+() Tj
+0 -15 Td
+(1\) QtWebEngine / QtPdf sicher deaktivieren) Tj
+0 -15 Td
+(- In 6.11.0 kann -skip qtwebengine allein unzuverlaessig sein.) Tj
+0 -15 Td
+(- Zusaetzlich setzen:) Tj
+0 -15 Td
+(  -- -DFEATURE_qtwebengine_build=OFF -DFEATURE_qtpdf_build=OFF) Tj
+0 -15 Td
+(- Immer in frischem Build-Ordner oder mit -redo konfigurieren.) Tj
+0 -15 Td
+() Tj
+0 -15 Td
+(2\) Debug und Release getrennt bauen) Tj
+0 -15 Td
+(- Eigene Build-Ordner fuer Release und Debug verwenden.) Tj
+0 -15 Td
+(- Das reduziert CMake/Ninja-Konflikte und File-Locks.) Tj
+0 -15 Td
+() Tj
+0 -15 Td
+(3\) QPA-Plugin Fehler beheben) Tj
+0 -15 Td
+(- Bei Fehler "Could not find Qt platform plugin minimal":) Tj
+0 -15 Td
+(  set QT_QPA_PLATFORM=windows) Tj
+0 -15 Td
+(- Optional QT_* Pfade bereinigen \(QT_PLUGIN_PATH etc.\).) Tj
+0 -15 Td
+() Tj
+0 -15 Td
+(4\) ActiveQt COM-Registrierungsfehler 0x8002801c) Tj
+0 -15 Td
+(- Ursache: fehlende Registry-Rechte bei Beispiel "comapp -regserver".) Tj
+0 -15 Td
+(- Loesung: -nomake examples \(empfohlen\) oder Build als Administrator.) Tj
+0 -15 Td
+() Tj
+0 -15 Td
+(5\) LNK1105 / Datei-Lock) Tj
+0 -15 Td
+(- "Qt6BundledPcre2.lib kann nicht geschlossen werden" = Datei gesperrt.) Tj
+0 -15 Td
+(- Typische Verursacher: Defender/Indexer/paralleler Prozess.) Tj
+0 -15 Td
+(- Build stoppen, lockenden Prozess freigeben, erneut bauen.) Tj
+0 -15 Td
+() Tj
+0 -15 Td
+(6\) Beispiel-Quellen mitinstallieren) Tj
+0 -15 Td
+(- Fuer .cpp/.h in install-Beispielen nutzen:) Tj
+0 -15 Td
+(  -install-examples-sources) Tj
+0 -15 Td
+(- Optional Zielpfad setzen mit -examplesdir <Pfad>.) Tj
+ET
+endstream
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+xref
+0 6
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000241 00000 n 
+0000001955 00000 n 
+trailer
+<< /Size 6 /Root 1 0 R >>
+startxref
+2025
+%%EOF
